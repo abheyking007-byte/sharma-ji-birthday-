@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Birthday Surprise ❤️</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
+color:white;
+text-align:center;
+overflow:hidden;
+}
+
+.container{
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+flex-direction:column;
+padding:20px;
+}
+
+.slide{
+display:none;
+}
+
+.slide.active{
+display:block;
+}
+
+button{
+padding:12px 28px;
+font-size:18px;
+border:none;
+border-radius:30px;
+background:white;
+color:#ff4b7d;
+cursor:pointer;
+margin-top:20px;
+}
+
+img{
+width:240px;
+border-radius:15px;
+margin:10px;
+}
+
+.heart{
+position:absolute;
+top:-10px;
+font-size:20px;
+animation:fall 5s linear infinite;
+}
+
+@keyframes fall{
+0%{transform:translateY(-10px);}
+100%{transform:translateY(100vh);}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- Slide 1 -->
+<div class="slide active">
+<h2>HNJI SOHNEYO ❤️</h2>
+<p>BIRTHDAY AA AJJ  
+CHALO DEKHO KUJ HAI TUHADE LYI 🎁</p>
+<button onclick="next()">Tap For Next</button>
+</div>
+
+<!-- Slide 2 -->
+<div class="slide">
+<h2>Saadiyan Sohniyan Memories 😊</h2>
+
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+
+<p>
+Eh din main kade nahi bhul sakda.  
+Dekho kinne sohne lag rahe haan assi,  
+kinni sohniyan memories ne saadiyan. ❤️
+</p>
+
+<button onclick="next()">Next</button>
+</div>
+
+<!-- Slide 3 -->
+<div class="slide">
+
+<h2>Sharma Ji ❤️</h2>
+
+<img src="her1.jpg">
+<img src="her2.jpg">
+<img src="her3.jpg">
+
+<p>
+
+Happy Birthday Sharma Ji 🎂❤️  
+<br><br>
+
+Rabb agge meri bas eh hi dua hai ke oh tuhanu hamesha khush rakhe  
+te tuhadi zindagi vich sirf khushiyan hi khushiyan hovan.  
+
+<br><br>
+
+Sach dassa taan Devi Ji,  
+tuhadi muskaan meri duniya di sab ton sohni cheez hai  
+te tuhda hona meri zindagi di sab ton waddi khushi.  
+
+<br><br>
+
+Shayad main har gall lafzan vich changi tarah na keh saka,  
+par eh zaroor kehna chahunda haan ke  
+tusi meri life nu bahut khoobsurat bana ditta hai.  
+
+<br><br>
+
+Sharma Ji, tuhade naal gallan karna,  
+hassna te har chhoti memory  
+meri zindagi di sab ton pyari cheez ban gayi hai.  
+
+<br><br>
+
+Rabb kare Devi Ji,  
+tuhadi zindagi hamesha pyar, sukoon  
+te khushiyan naal bhari rahe.  
+
+<br><br>
+
+Janamdin diyan lakh lakh mubarkan Sharma Ji ❤️
+
+</p>
+
+</div>
+
+</div>
+
+<audio id="music" autoplay loop>
+<source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+let slides=document.querySelectorAll(".slide");
+let index=0;
+
+function next(){
+
+if(index===0){
+document.getElementById("music").play();
+}
+
+slides[index].classList.remove("active");
+index++;
+
+if(index<slides.length){
+slides[index].classList.add("active");
+}
+
+}
+
+function createHearts(){
+
+let heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(10+Math.random()*30)+"px";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},5000);
+
+}
+
+setInterval(createHearts,300);
+
+</script>
+
+</body>
+</html>
